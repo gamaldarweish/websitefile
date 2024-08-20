@@ -1,0 +1,258 @@
+/* 
+    ده بيصفر الـ padding والـ margin لكل حاجة في الصفحة. 
+    وبيحدد لون النص يكون أبيض، وخط الكتابة يكون sans-serif.
+*/
+*{
+    padding: 0;
+    margin: 0;
+    color:white;
+    font-family: sans-serif;
+}
+
+/* 
+    ده بيخلي خلفية الصفحة سوداء، وبيخلي العناصر جواها تتوزع بشكل مرن (يعني flex).
+*/
+body{
+    background: black;
+    display: flex;
+}
+
+/* 
+    ده بيخلي صندوق الصورة يكون بعرض وارتفاع 40 بيكسل، ويكون دائري بفضل الـ border-radius. 
+    وكمان بيمنع الصورة من الخروج برة الصندوق (بفضل overflow: hidden). 
+    وflex-shrink: 0 بيمنع الصندوق من الانكماش في حالة تغيير حجم العنصر.
+*/
+.img-box{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* 
+    ده بيخلي الصورة تاخد حجم الصندوق بالكامل.
+*/
+.img-box img{
+    width: 100%;
+}
+
+/* 
+    ده بيخلي العنصر اللي فيه الصورة والنص يتوزعوا بشكل مرن جنب بعض. 
+    وكمان بيحدد مسافة 40 بيكسل بين العناصر.
+*/
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* 
+    ده بيحدد حجم خط العنوان يكون 20 بيكسل، وبيخلي أول حرف في كل كلمة كبير.
+*/
+.profile h2{
+    font-size:20px;
+    text-transform: capitalize;
+}
+
+/* 
+    ده بيخلي القائمة اللي على الجنب بلون رمادي غامق (#123) بعرض 60 بيكسل وارتفاعها يغطي الصفحة كلها. 
+    وكمان بيضيف padding عشان يبعد المحتوى عن الحواف. 
+    وأي حاجة زيادة جوة القائمة مش بتظهر بسبب overflow: hidden. 
+    وكمان بيضيف تأثير الانتقال لمدة نص ثانية لو حصل أي تغيير في حجم القائمة.
+*/
+.menu{
+    background: #123;
+    width: 60px;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+/* 
+    لما تمرر الماوس على القائمة، العرض بيزيد لـ 260 بيكسل.
+*/
+.menu:hover{
+    width: 260px;
+}
+
+/* 
+    ده بيشيل النقط اللي بتكون جنب العناصر في الـ ul، 
+    وبيخلي القائمة النسبية من ناحية المكان. 
+    وكمان بيديها ارتفاع 95% من الصفحة.
+*/
+ul{
+    list-style-type: none;
+    position: relative;
+    height: 95%;
+}
+
+/* 
+    ده بيخلي روابط القائمة تظهر ككتل (block) من غير تحتها خط، 
+    وبيضيف لها حواف مدورة (8 بيكسل)، مع padding و margin عشان المسافات. 
+    وبيخلي النص والأيقونات جنب بعض بشكل مرن مع مسافة 40 بيكسل بينهم. 
+    وكمان بيضيف تأثير الانتقال لمدة نص ثانية.
+*/
+ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transition: .5s;
+}
+
+/* 
+    لما تمرر الماوس على الروابط أو العناصر النشطة أو مربعات البيانات أو الخلايا في الجدول، 
+    الخلفية بتتحول للون شبه شفاف أبيض.
+*/
+ul li a:hover,.active,.data-info.box:hover, td:hover{
+    background-color: #ffffff55;
+}
+
+/* 
+    ده بيحط زرار الخروج في أسفل القائمة بالظبط، وياخد عرض القائمة كله.
+*/
+.log-out{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+}
+
+/* 
+    بيخلي خلفية زرار الخروج لونها أحمر.
+*/
+.log-out a{
+    background: red;
+}
+
+/* 
+    بيخلي حجم الأيقونات في الروابط 30 بيكسل.
+*/
+ul li a i{
+    font-size: 30px;
+}
+
+/* 
+    ده بيدي المحتوى عرض 100% مع مسافة 10 بيكسل من كل جنب.
+*/
+.content{
+    width: 100%;
+    margin: 10px;
+}
+
+/* 
+    بيخلي خلفية عنوان المعلومات أزرق، وبيضيف padding و margin مع حواف مدورة. 
+    وكمان بيخلي العناصر تتوزع بشكل مرن، مع مسافة متساوية بينهم.
+*/
+.tittle-info{
+    background: #0481ff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* 
+    ده بيخلي مربعات البيانات تتوزع جنب بعض بشكل مرن، مع مسافات 10 بيكسل بينهم. 
+    وكمان بتلف تحت بعضها لو الشاشة أصغر (flex-wrap: wrap).
+*/
+.data-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 
+    بيحدد خلفية مربعات البيانات باللون الرمادي الغامق (#123) مع ارتفاع 150 بيكسل. 
+    وبيخلي العرض الأساسي للمربعات 150 بيكسل، لكن ممكن تكبر لو في مساحة (flex-grow: 1). 
+    وبيخلي النص والأيقونات يتوزعوا بشكل مرن مع حواف مدورة.
+*/
+.data-info .box{
+    background-color: #123;
+    height: 150px;
+    flex-basis: 150px;
+    flex-grow: 1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* 
+    ده بيخلي حجم الأيقونات جوة المربعات 40 بيكسل.
+*/
+.data-info .box i{
+    font-size: 40px;
+}
+
+/* 
+    بيخلي النصوص جوة المربعات تكون في النص.
+*/
+.data-info .box .data{
+    text-align: center;
+}
+
+/* 
+    بيخلي حجم النص جوة المربعات 30 بيكسل.
+*/
+.data-info .box .data span{
+    font-size: 30px;
+}
+
+/* 
+    بيخلي الجدول ياخد عرض الصفحة كله، والنصوص تكون في النص. 
+    وبيحدد مسافة 8 بيكسل بين الخلايا.
+*/
+table{
+    width: 100%;
+    text-align: center;
+    border-spacing: 8px;
+}
+
+/* 
+    بيخلي خلفية الخلايا في الجدول رمادي غامق مع ارتفاع 40 بيكسل وحواف مدورة.
+*/
+td,th{
+    background-color: #123;
+    height: 40px;
+    border-radius: 8px;
+}
+
+/* 
+    بيخلي خلفية رؤوس الأعمدة أزرق.
+*/
+th{
+    background-color: #0481ff;
+}
+
+/* 
+    بيضيف padding 6 بيكسل وحواف مدورة للصناديق اللي فيها أسعار أو عداد.
+*/
+.price, .count{
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* 
+    بيخلي خلفية الصندوق اللي فيه السعر أخضر.
+*/
+.price{
+    background-color: green;
+}
+
+/* 
+    بيخلي خلفية الصندوق اللي فيه العداد ذهبية والنص يكون باللون الأسود.
+*/
+.count{
+    background-color: gold;
+    color: black;
+}
